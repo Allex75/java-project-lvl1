@@ -26,11 +26,14 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'hexlet.code.App'
-//    mainModule = 'hexlet.code.'
+//
 }
 compileJava {
-    options.release = 15
+    options.release = 16
 }
 
+run {
+    standardInput = System.in
+}
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
