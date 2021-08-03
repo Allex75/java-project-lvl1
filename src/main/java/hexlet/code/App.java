@@ -4,7 +4,7 @@
 package hexlet.code;
 
 
-import java.util.Scanner;
+
 
 public class App {
 
@@ -14,18 +14,18 @@ public class App {
         System.out.println("Welcome to the Brain Games!");
         Cli.name();
 
-        private static void main (String[] args) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Please enter the game number and press Enter ");
-            System.out.println("1 - Greet");
-            System.out.println("0 - Exit");
-            System.out.print("Your choice: ");
-            int number = sc.nextInt();
-            if (number == 1) {
-                return main();
-            }
+//        static void main (String[] args) {
+//            Scanner sc = new Scanner(System.in);
+//            System.out.println("Please enter the game number and press Enter ");
+//            System.out.println("1 - Greet");
+//            System.out.println("0 - Exit");
+//            System.out.print("Your choice: ");
+//            int number = sc.nextInt();
+//            if (number == 1) {
+//                return greeting();
+//            }
         }
 
 
-    }
+
 }
