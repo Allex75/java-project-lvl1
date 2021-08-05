@@ -1,8 +1,7 @@
 
 package hexlet.code;
 
-import java.util.Locale;
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class App {
@@ -45,6 +44,7 @@ public class App {
         int j = 0;
         final int numberOfQuestions = 3;
         final int maximumOfRange = 3;
+        final int countOfCorrectAnswer = 3;
         for (int i = 0; i < numberOfQuestions; i++) {
             int rnd = Utils.getRandomNumber(0, maximumOfRange);
             System.out.println("Question: " + rnd);
@@ -75,7 +75,7 @@ public class App {
                 }
             }
         }
-        if (j == 3) {
+        if (j == countOfCorrectAnswer) {
             System.out.println("Congratulations, " + name + "!");
         }
 
