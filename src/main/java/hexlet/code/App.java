@@ -43,10 +43,10 @@ public class App {
 
 
         int j = 0;
-        int numberOfQuestions = 3;
-        int maximumRange = 3;
+        final int numberOfQuestions = 3;
+        final int maximumOfRange = 3;
         for (int i = 0; i < numberOfQuestions; i++) {
-            int rnd = Utils.getRandomNumber(0, maximumRange);
+            int rnd = Utils.getRandomNumber(0, maximumOfRange);
             System.out.println("Question: " + rnd);
             System.out.print("Your answer: ");
             String answer = sc.nextLine().toLowerCase();
@@ -56,8 +56,8 @@ public class App {
                     System.out.println("Correct!");
                     j++;
                 } else {
-                    String str = "'" + answer + "' is wrong answer ;(. " +
-                            "Correct answer was 'yes'.\nLet's try again, " + name;
+                    String str = "'" + answer + "' is wrong answer ;(. "
+                            + "Correct answer was 'yes'.\nLet's try again, " + name;
                     System.out.println(str);
                     break;
 
@@ -68,8 +68,8 @@ public class App {
                     System.out.println("Correct!");
                     j++;
                 } else {
-                    String str2 = "'" + answer + "' is wrong answer ;(. " +
-                            "Correct answer was 'no'.\nLet's try again, " + name;
+                    String str2 = "'" + answer + "' is wrong answer ;(. "
+                            + "Correct answer was 'no'.\nLet's try again, " + name;
                     System.out.println(str2);
                     break;
                 }
