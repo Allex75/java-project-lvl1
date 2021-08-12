@@ -4,4 +4,4 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 [![Actions Status](https://github.com/Allex75/java-project-lvl1/workflows/GithubActions/badge.svg)](https://github.com/Allex75/java-project-lvl1/actions)
 [![Build Status](https://travis-ci.com/Allex75/java-project-lvl1.svg?branch=main)](https://travis-ci.com/Allex75/java-project-lvl1)
-[![asciicast](https://asciinema.org/a/lFnV7H3VzxqlLw9xuctBrqy5U.svg)](https://asciinema.org/a/lFnV7H3VzxqlLw9xuctBrqy5U)
+[![asciicast](https://asciinema.org/a/exUNFXl0Vggf46kntfhofv59r.svg)](https://asciinema.org/a/exUNFXl0Vggf46kntfhofv59r)

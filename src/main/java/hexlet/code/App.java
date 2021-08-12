@@ -21,25 +21,23 @@ public class App {
                 break;
             case 2:
                 String name = greeting();
-                checkingForParity(name);
+                even(name);
                 break;
             default:
                 System.out.println("Error");
         }
-
     }
+
 
     public static String greeting() {
         System.out.println("Welcome to the Brain Games!");
         return Cli.getName();
-
     }
 
 
-    public static void checkingForParity(String name) {
+    public static void even(String name) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-
 
         int j = 0;
         final int numberOfQuestions = 3;
@@ -60,9 +58,7 @@ public class App {
                             + "Correct answer was 'yes'.\nLet's try again, " + name;
                     System.out.println(str);
                     break;
-
                 }
-
             } else {
                 if (answer.equals("no")) {
                     System.out.println("Correct!");
@@ -78,6 +74,5 @@ public class App {
         if (j == countOfCorrectAnswer) {
             System.out.println("Congratulations, " + name + "!");
         }
-
     }
 }
