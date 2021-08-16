@@ -1,7 +1,9 @@
 package hexlet.code;
 
+import java.util.Random;
+
 public class Utils {
     public static int getRandomNumber(int min, int max) {
-        return min + (int) (Math.random() * ((max - min) + 1));
+        return new Random().nextInt(max) + min;
     }
 }
