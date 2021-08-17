@@ -2,6 +2,7 @@ package hexlet.code;
 
 import static hexlet.code.games.Games.calc;
 import static hexlet.code.games.Games.even;
+import static hexlet.code.games.Games.gcd;
 
 public class Engine {
 
@@ -10,10 +11,12 @@ public class Engine {
         final int numberOfQuestions = 3;
         final int maximumOfRangeForEven = 100;
         final int maximumOfRangeForCalc = 25;
+        final int maximumOfRangeForGcd = 100;
         final int countOfCorrectAnswer = 3;
         final int gameGreet = 1;
         final int gameEven = 2;
         final int gameCalc = 3;
+        final  int gameGcd = 4;
         for (int i = 0; i < numberOfQuestions; i++) {
             int result = 0;
             switch (number) {
@@ -25,6 +28,9 @@ public class Engine {
                     break;
                 case gameCalc:
                     result = calc(name, maximumOfRangeForCalc);
+                    break;
+                case gameGcd:
+                    result = gcd(name, maximumOfRangeForGcd);
                     break;
                 default:
                     System.out.println("Error");

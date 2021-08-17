@@ -6,3 +6,4 @@
 [![Build Status](https://travis-ci.com/Allex75/java-project-lvl1.svg?branch=main)](https://travis-ci.com/Allex75/java-project-lvl1)
 [![asciicast](https://asciinema.org/a/exUNFXl0Vggf46kntfhofv59r.svg)](https://asciinema.org/a/exUNFXl0Vggf46kntfhofv59r)
 [![asciicast](https://asciinema.org/a/dV2MaJHB4Ez63QKo7odJPCTYO.svg)](https://asciinema.org/a/dV2MaJHB4Ez63QKo7odJPCTYO)
+[![asciicast](https://asciinema.org/a/HaFqt15411ih06SlOJTLFLzwR.svg)](https://asciinema.org/a/HaFqt15411ih06SlOJTLFLzwR)
