@@ -6,10 +6,10 @@ public class Cli {
 
     public static String getName() {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("May I have your name? ");
-        String name = sc.nextLine();
-        System.out.println("Hello, " + name);
+        String name = scanner.nextLine();
+        System.out.println("Hello, " + name + "!");
         return name;
     }
 }
