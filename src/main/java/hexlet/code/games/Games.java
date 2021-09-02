@@ -8,8 +8,7 @@ import static java.lang.Integer.parseInt;
 
 public class Games {
 
-    public static int even(String name, int maximumOfRange) {
-        Scanner scanner = new Scanner(System.in);
+    public static int even(Scanner scanner, String name, int maximumOfRange) {
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         int rnd = Utils.getRandomNumber(0, maximumOfRange);
         System.out.println("Question: " + rnd);
@@ -39,8 +38,7 @@ public class Games {
     }
 
 
-    public static int calc(String name, int maximumOfRange) {
-        Scanner scanner = new Scanner(System.in);
+    public static int calc(Scanner scanner, String name, int maximumOfRange) {
         System.out.println("What is the result of the expression?");
         String[] mathematicalSigns = {" + ", " - ", " * "};
         int rndIndex = Utils.getRandomNumber(0, mathematicalSigns.length);
@@ -77,8 +75,7 @@ public class Games {
         }
     }
 
-    public static int gcd(String name, int maximumOfRange) {
-        Scanner scanner = new Scanner(System.in);
+    public static int gcd(Scanner scanner, String name, int maximumOfRange) {
         System.out.println("Find the greatest common divisor of given numbers.");
         int a = Utils.getRandomNumber(1, maximumOfRange);
         int b = Utils.getRandomNumber(1, maximumOfRange);
@@ -107,8 +104,7 @@ public class Games {
     }
 
 
-    public static int progression(String name, int maximumOfRange) {
-        Scanner scanner = new Scanner(System.in);
+    public static int progression(Scanner scanner, String name, int maximumOfRange) {
         System.out.println("What number is missing in the progression?");
 
         final int lengthOfProgression = 10;
@@ -120,11 +116,8 @@ public class Games {
 
         for (int i = 1; i < array.length; i++) {
             array[i] = array[i - 1] + progressionStep;
-
         }
-
         missingPos = Utils.getRandomNumber(0, lengthOfProgression - 1);
-
         for (int i = 0; i < array.length; i++) {
             if (i == missingPos) {
                 arrayStr.append(".. ");
@@ -151,4 +144,51 @@ public class Games {
 
     }
 
+
+    public static int prime(Scanner scanner, String name, int maximumOfRange) {
+
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        int rndNumber = Utils.getRandomNumber(0, maximumOfRange);
+        System.out.println("Question: " + rndNumber);
+        System.out.print("Your answer: ");
+        String answer = scanner.nextLine().toLowerCase();
+        if (isPrime(rndNumber)) {
+            if (answer.equals("yes")) {
+                System.out.println("Correct!");
+                return 1;
+            } else {
+                String str = "'" + answer + "' is wrong answer ;(. "
+                        + "Correct answer was 'yes'.\nLet's try again, " + name;
+                System.out.println(str);
+                return 0;
+            }
+        } else  {
+            if (answer.equals("no")) {
+                System.out.println("Correct!");
+                return 1;
+            } else {
+                String str2 = "'" + answer + "' is wrong answer ;(. "
+                        + "Correct answer was 'no'.\nLet's try again, " + name + "!";
+                System.out.println(str2);
+                return 0;
+            }
+        }
+
+    }
+
+
+    private static boolean isPrime(int num) {
+        if (num <= 1 || num != 2 && num % 2 == 0) {
+            return false;
+        } else {
+            int iSqrt = (int) Math.sqrt(num);
+            for (int i = 2; i <= iSqrt; i++) {
+                if (num % i == 0) {
+                    return false;
+
+                }
+            }
+            return true;
+        }
+    }
 }

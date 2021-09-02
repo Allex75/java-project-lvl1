@@ -1,44 +1,51 @@
 package hexlet.code;
 
+
+import java.util.Scanner;
+
+import static hexlet.code.Utils.COUNT_OF_CORRECT_ANSWER;
+import static hexlet.code.Utils.GAME_CALC;
+import static hexlet.code.Utils.GAME_EVEN;
+import static hexlet.code.Utils.GAME_GCD;
+import static hexlet.code.Utils.GAME_GREET;
+import static hexlet.code.Utils.GAME_PRIME;
+import static hexlet.code.Utils.GAME_PROGRESSION;
+import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_CALC;
+import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_EVEN;
+import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_GCD;
+import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_PRIME;
+import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_PROGRESSION;
+import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 import static hexlet.code.games.Games.calc;
 import static hexlet.code.games.Games.even;
 import static hexlet.code.games.Games.gcd;
+import static hexlet.code.games.Games.prime;
 import static hexlet.code.games.Games.progression;
 
 public class Engine {
 
-    public static void runGame(int number, String name) {
+    public static void runGame(Scanner scanner, int number, String name) {
         int j = 0;
-
-
-        final int maximumOfRangeForCalc = 25;
-        final int maximumOfRangeForGcd = 50;
-        final int maximumOfRangeForProgression = 20;
-        final int maximumOfRangeForEven = 50;
-        final int numberOfQuestions = 3;
-        final int countOfCorrectAnswer = 3;
-        final int gameGreet = 1;
-        final int gameEven = 2;
-        final int gameCalc = 3;
-        final int gameGcd = 4;
-        final int gameProgression = 5;
-        for (int i = 0; i < numberOfQuestions; i++) {
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int result = 0;
             switch (number) {
 
-                case gameGreet:
+                case GAME_GREET:
                     break;
-                case gameEven:
-                    result = even(name, maximumOfRangeForEven);
+                case GAME_EVEN:
+                    result = even(scanner, name, MAXIMUM_OF_RANGE_FOR_EVEN);
                     break;
-                case gameCalc:
-                    result = calc(name, maximumOfRangeForCalc);
+                case GAME_CALC:
+                    result = calc(scanner, name, MAXIMUM_OF_RANGE_FOR_CALC);
                     break;
-                case gameGcd:
-                    result = gcd(name, maximumOfRangeForGcd);
+                case GAME_GCD:
+                    result = gcd(scanner, name, MAXIMUM_OF_RANGE_FOR_GCD);
                     break;
-                case gameProgression:
-                    result = progression(name, maximumOfRangeForProgression);
+                case GAME_PROGRESSION:
+                    result = progression(scanner, name, MAXIMUM_OF_RANGE_FOR_PROGRESSION);
+                    break;
+                case GAME_PRIME:
+                    result = prime(scanner, name, MAXIMUM_OF_RANGE_FOR_PRIME);
                     break;
                 default:
                     System.out.println("Error");
@@ -49,7 +56,7 @@ public class Engine {
                 j++;
             }
         }
-        if (j == countOfCorrectAnswer) {
+        if (j == COUNT_OF_CORRECT_ANSWER) {
             System.out.println("Congratulations, " + name + "!");
         }
     }

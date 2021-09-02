@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -13,20 +14,21 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        int number = scanner.nextInt();
+        int number = Integer.parseInt(scanner.nextLine());
+
         final int gameGreet = 1;
         final int gameEven = 2;
         final int gameCalc = 3;
         final int gameGcd = 4;
         final int gameProgression = 5;
-        if (number == gameGreet || number == gameEven || number == gameCalc || number == gameGcd
-                || number == gameProgression) {
+        final int gamePrime = 6;
+        List<Integer> games = List.of(gameGreet, gameEven, gameCalc, gameGcd, gameProgression, gamePrime);
+        if (games.contains(number)) {
             String name = greeting();
-            if (number == gameEven || number == gameCalc || number == gameGcd || number == gameProgression) {
-                Engine.runGame(number, name);
-            }
+            Engine.runGame(scanner, number, name);
         }
     }
 
@@ -34,6 +36,4 @@ public class App {
         System.out.println("Welcome to the Brain Games!");
         return Cli.getName();
     }
-
-
 }
