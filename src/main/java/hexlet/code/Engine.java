@@ -1,6 +1,12 @@
 package hexlet.code;
 
 
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
+
 import java.util.Scanner;
 
 import static hexlet.code.Utils.COUNT_OF_CORRECT_ANSWER;
@@ -16,11 +22,6 @@ import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_GCD;
 import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_PRIME;
 import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_PROGRESSION;
 import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
-import static hexlet.code.games.Games.calc;
-import static hexlet.code.games.Games.even;
-import static hexlet.code.games.Games.gcd;
-import static hexlet.code.games.Games.prime;
-import static hexlet.code.games.Games.progression;
 
 public class Engine {
 
@@ -33,19 +34,19 @@ public class Engine {
                 case GAME_GREET:
                     break;
                 case GAME_EVEN:
-                    result = even(scanner, name, MAXIMUM_OF_RANGE_FOR_EVEN);
+                    result = EvenGame.even(scanner, name, MAXIMUM_OF_RANGE_FOR_EVEN);
                     break;
                 case GAME_CALC:
-                    result = calc(scanner, name, MAXIMUM_OF_RANGE_FOR_CALC);
+                    result = CalcGame.calc(scanner, name, MAXIMUM_OF_RANGE_FOR_CALC);
                     break;
                 case GAME_GCD:
-                    result = gcd(scanner, name, MAXIMUM_OF_RANGE_FOR_GCD);
+                    result = GcdGame.gcd(scanner, name, MAXIMUM_OF_RANGE_FOR_GCD);
                     break;
                 case GAME_PROGRESSION:
-                    result = progression(scanner, name, MAXIMUM_OF_RANGE_FOR_PROGRESSION);
+                    result = ProgressionGame.progression(scanner, name, MAXIMUM_OF_RANGE_FOR_PROGRESSION);
                     break;
                 case GAME_PRIME:
-                    result = prime(scanner, name, MAXIMUM_OF_RANGE_FOR_PRIME);
+                    result = PrimeGame.prime(scanner, name, MAXIMUM_OF_RANGE_FOR_PRIME);
                     break;
                 default:
                     System.out.println("Error");
