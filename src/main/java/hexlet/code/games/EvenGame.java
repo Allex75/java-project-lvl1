@@ -18,7 +18,7 @@ public class EvenGame {
                 return 1;
             } else {
                 String str = "'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was 'yes'.\nLet's try again, " + name;
+                        + "Correct answer was 'yes'.\nLet's try again, " + name + "!";
                 System.out.println(str);
                 return 0;
             }
