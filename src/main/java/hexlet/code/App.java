@@ -1,7 +1,20 @@
 package hexlet.code;
 
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
+
 import java.util.List;
 import java.util.Scanner;
+
+import static hexlet.code.Utils.GAME_CALC;
+import static hexlet.code.Utils.GAME_EVEN;
+import static hexlet.code.Utils.GAME_GCD;
+import static hexlet.code.Utils.GAME_GREET;
+import static hexlet.code.Utils.GAME_PRIME;
+import static hexlet.code.Utils.GAME_PROGRESSION;
 
 public class App {
 
@@ -19,17 +32,32 @@ public class App {
         System.out.print("Your choice: ");
         int number = Integer.parseInt(scanner.nextLine());
 
-        final int gameGreet = 1;
-        final int gameEven = 2;
-        final int gameCalc = 3;
-        final int gameGcd = 4;
-        final int gameProgression = 5;
-        final int gamePrime = 6;
-        List<Integer> games = List.of(gameGreet, gameEven, gameCalc, gameGcd, gameProgression, gamePrime);
-        if (games.contains(number)) {
-            String name = greeting();
-            Engine.runGame(scanner, number, name);
+
+        List<Integer> games = List.of(GAME_GREET, GAME_EVEN, GAME_CALC, GAME_GCD, GAME_PROGRESSION, GAME_PRIME);
+        switch (number) {
+            case GAME_GREET:
+                greeting();
+                break;
+            case GAME_EVEN:
+                EvenGame.runGame(scanner);
+                break;
+            case GAME_CALC:
+                CalcGame.runGame(scanner);
+                break;
+            case GAME_GCD:
+                GcdGame.runGame(scanner);
+                break;
+            case GAME_PROGRESSION:
+                ProgressionGame.runGame(scanner);
+                break;
+            case GAME_PRIME:
+                PrimeGame.runGame(scanner);
+                break;
+            default:
+                System.out.println("Error");
         }
+
+
     }
 
     public static String greeting() {

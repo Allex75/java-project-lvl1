@@ -1,47 +1,58 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import java.util.Scanner;
 
-import static java.lang.Integer.parseInt;
+import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_CALC;
+import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 
 public class CalcGame {
 
-    public static int calc(Scanner scanner, String name, int maximumOfRange) {
+
+    public static void runGame(Scanner scanner) {
+        String name = App.greeting();
         System.out.println("What is the result of the expression?");
-        String[] mathematicalSigns = {" + ", " - ", " * "};
-        int rndIndex = Utils.getRandomNumber(0, mathematicalSigns.length);
-        String rndChar = mathematicalSigns[rndIndex];
-        int randomNumber1 = Utils.getRandomNumber(0, maximumOfRange);
-        int randomNumber2 = Utils.getRandomNumber(0, maximumOfRange);
-        String rndExpression = randomNumber1 + rndChar + randomNumber2;
-        System.out.println("Question: " + rndExpression);
-        System.out.print("Your answer: ");
-        String answer = scanner.nextLine();
-        int answerNumber = parseInt(answer);
-        int correctAnswer;
-        switch (rndChar) {
-            case " + ":
-                correctAnswer = randomNumber1 + randomNumber2;
-                break;
-            case " - ":
-                correctAnswer = randomNumber1 - randomNumber2;
-                break;
-            case " * ":
-                correctAnswer = randomNumber1 * randomNumber2;
-                break;
-            default:
-                correctAnswer = 0;
+
+        String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
+        String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+            arrayOfQuestions[i] = question();
+            arrayOfRightAnswers[i] = rightAnswer(arrayOfQuestions[i]);
         }
-        if (answerNumber == correctAnswer) {
-            System.out.println("Correct!");
-            return 1;
-        } else {
-            String str = "'" + answer + "' is wrong answer ;(. "
-                    + "Correct answer was " + "'" + correctAnswer + "'" + ".\nLet's try again, " + name + "!";
-            System.out.println(str);
-            return 0;
+        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, name);
+    }
+
+    public static String question() {
+        return Utils.getRandomNumber(0, MAXIMUM_OF_RANGE_FOR_CALC)
+                + " " + mathematicalSigns() + " "
+                + Utils.getRandomNumber(0, MAXIMUM_OF_RANGE_FOR_CALC);
+    }
+
+
+    public static String rightAnswer(String expression) {
+        String[] partsOfExpression = expression.split(" ");
+        int randomNumber1 = Integer.parseInt(partsOfExpression[0]);
+        int randomNumber2 = Integer.parseInt(partsOfExpression[2]);
+        String operator = partsOfExpression[1];
+        switch (operator) {
+            case "+":
+                return Integer.toString(randomNumber1 + randomNumber2);
+            case "-":
+                return Integer.toString(randomNumber1 - randomNumber2);
+            default:
+                return Integer.toString(randomNumber1 * randomNumber2);
+
+
         }
     }
+
+    private static String mathematicalSigns() {
+        String[] mathematicalSigns = {"+", "-", "*"};
+        int rndIndex = Utils.getRandomNumber(0, mathematicalSigns.length);
+        return mathematicalSigns[rndIndex];
+    }
+
 }

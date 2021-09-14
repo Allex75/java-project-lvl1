@@ -11,7 +11,7 @@ public class Utils {
     public static final int MAXIMUM_OF_RANGE_FOR_PRIME = 50;
 
     public static final int NUMBER_OF_QUESTIONS = 3;
-    public static final int COUNT_OF_CORRECT_ANSWER = 3;
+
 
     public static final int GAME_GREET = 1;
     public static final int GAME_EVEN = 2;

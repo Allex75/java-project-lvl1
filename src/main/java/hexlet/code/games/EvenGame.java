@@ -1,37 +1,39 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import java.util.Scanner;
 
+import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
+
 public class EvenGame {
 
-    public static int even(Scanner scanner, String name, int maximumOfRange) {
+
+    public static int question() {
+        return Utils.getRandomNumber(0, Utils.MAXIMUM_OF_RANGE_FOR_EVEN);
+    }
+
+    public static String rightAnswer(int num) {
+        return isEven(num) ? "yes" : "no";
+    }
+
+    private static boolean isEven(int num) {
+        return num % 2 == 0;
+    }
+
+    public static void runGame(Scanner scanner) {
+        String name = App.greeting();
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-        int rnd = Utils.getRandomNumber(0, maximumOfRange);
-        System.out.println("Question: " + rnd);
-        System.out.print("Your answer: ");
-        String answer = scanner.nextLine().toLowerCase();
-        if (rnd % 2 == 0) {
-            if (answer.equals("yes")) {
-                System.out.println("Correct!");
-                return 1;
-            } else {
-                String str = "'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was 'yes'.\nLet's try again, " + name + "!";
-                System.out.println(str);
-                return 0;
-            }
-        } else {
-            if (answer.equals("no")) {
-                System.out.println("Correct!");
-                return 1;
-            } else {
-                String str2 = "'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was 'no'.\nLet's try again, " + name + "!";
-                System.out.println(str2);
-                return 0;
-            }
+
+        String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
+        String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
+            int question = question();
+            arrayOfQuestions[i] = String.valueOf(question);
+            arrayOfRightAnswers[i] = rightAnswer(question);
         }
+        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, name);
     }
 }

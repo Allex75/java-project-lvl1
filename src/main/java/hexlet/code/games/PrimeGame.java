@@ -1,42 +1,34 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import java.util.Scanner;
 
 public class PrimeGame {
 
-    public static int prime(Scanner scanner, String name, int maximumOfRange) {
 
+    public static void runGame(Scanner scanner) {
+        String name = App.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int rndNumber = Utils.getRandomNumber(0, maximumOfRange);
-        System.out.println("Question: " + rndNumber);
-        System.out.print("Your answer: ");
-        String answer = scanner.nextLine().toLowerCase();
-        if (isPrime(rndNumber)) {
-            if (answer.equals("yes")) {
-                System.out.println("Correct!");
-                return 1;
-            } else {
-                String str = "'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was 'yes'.\nLet's try again, " + name + "!";
-                System.out.println(str);
-                return 0;
-            }
-        } else  {
-            if (answer.equals("no")) {
-                System.out.println("Correct!");
-                return 1;
-            } else {
-                String str2 = "'" + answer + "' is wrong answer ;(. "
-                        + "Correct answer was 'no'.\nLet's try again, " + name + "!";
-                System.out.println(str2);
-                return 0;
-            }
+        String[] arrayOfQuestions = new String[Utils.NUMBER_OF_QUESTIONS];
+        String[] arrayOfRightAnswers = new String[Utils.NUMBER_OF_QUESTIONS];
+        for (int i = 0; i < Utils.NUMBER_OF_QUESTIONS; i++) {
+            int question = question();
+            arrayOfQuestions[i] = String.valueOf(question);
+            arrayOfRightAnswers[i] = rightAnswer(question);
         }
-
+        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, name);
     }
 
+    public static int question() {
+        return Utils.getRandomNumber(0, Utils.MAXIMUM_OF_RANGE_FOR_PRIME);
+    }
+
+    public static String rightAnswer(int num) {
+        return isPrime(num) ? "yes" : "no";
+    }
 
     private static boolean isPrime(int num) {
         if (num <= 1 || num != 2 && num % 2 == 0) {
@@ -46,10 +38,11 @@ public class PrimeGame {
             for (int i = 2; i <= iSqrt; i++) {
                 if (num % i == 0) {
                     return false;
-
                 }
             }
             return true;
         }
     }
+
+
 }
