@@ -1,20 +1,17 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import java.util.Scanner;
 
-import static hexlet.code.Utils.MAXIMUM_OF_RANGE_FOR_CALC;
+import static hexlet.code.Utils.MAXIMUM_RANDOM_VALUE;
 import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 
 public class CalcGame {
-
+    private static String gameDescription = "What is the result of the expression?";
 
     public static void runGame(Scanner scanner) {
-        String name = App.greeting();
-        System.out.println("What is the result of the expression?");
 
         String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
         String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
@@ -22,13 +19,13 @@ public class CalcGame {
             arrayOfQuestions[i] = question();
             arrayOfRightAnswers[i] = rightAnswer(arrayOfQuestions[i]);
         }
-        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, name);
+        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, gameDescription);
     }
 
     public static String question() {
-        return Utils.getRandomNumber(0, MAXIMUM_OF_RANGE_FOR_CALC)
+        return Utils.getRandomNumber(0, MAXIMUM_RANDOM_VALUE)
                 + " " + mathematicalSigns() + " "
-                + Utils.getRandomNumber(0, MAXIMUM_OF_RANGE_FOR_CALC);
+                + Utils.getRandomNumber(0, MAXIMUM_RANDOM_VALUE);
     }
 
 

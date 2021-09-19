@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -10,9 +9,10 @@ import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 
 public class EvenGame {
 
+    private static  String gameDescription = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static int question() {
-        return Utils.getRandomNumber(0, Utils.MAXIMUM_OF_RANGE_FOR_EVEN);
+        return Utils.getRandomNumber(0, Utils.MAXIMUM_RANDOM_VALUE);
     }
 
     public static String rightAnswer(int num) {
@@ -24,8 +24,6 @@ public class EvenGame {
     }
 
     public static void runGame(Scanner scanner) {
-        String name = App.greeting();
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
 
         String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
         String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
@@ -34,6 +32,6 @@ public class EvenGame {
             arrayOfQuestions[i] = String.valueOf(question);
             arrayOfRightAnswers[i] = rightAnswer(question);
         }
-        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, name);
+        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, gameDescription);
     }
 }

@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
@@ -8,10 +7,9 @@ import java.util.Scanner;
 
 public class PrimeGame {
 
+    private static String gameDescription = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void runGame(Scanner scanner) {
-        String name = App.greeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         String[] arrayOfQuestions = new String[Utils.NUMBER_OF_QUESTIONS];
         String[] arrayOfRightAnswers = new String[Utils.NUMBER_OF_QUESTIONS];
         for (int i = 0; i < Utils.NUMBER_OF_QUESTIONS; i++) {
@@ -19,11 +17,11 @@ public class PrimeGame {
             arrayOfQuestions[i] = String.valueOf(question);
             arrayOfRightAnswers[i] = rightAnswer(question);
         }
-        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, name);
+        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, gameDescription);
     }
 
     public static int question() {
-        return Utils.getRandomNumber(0, Utils.MAXIMUM_OF_RANGE_FOR_PRIME);
+        return Utils.getRandomNumber(0, Utils.MAXIMUM_RANDOM_VALUE);
     }
 
     public static String rightAnswer(int num) {

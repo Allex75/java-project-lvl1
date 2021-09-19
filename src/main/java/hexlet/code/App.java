@@ -6,18 +6,16 @@ import hexlet.code.games.GcdGame;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
-import java.util.List;
 import java.util.Scanner;
-
-import static hexlet.code.Utils.GAME_CALC;
-import static hexlet.code.Utils.GAME_EVEN;
-import static hexlet.code.Utils.GAME_GCD;
-import static hexlet.code.Utils.GAME_GREET;
-import static hexlet.code.Utils.GAME_PRIME;
-import static hexlet.code.Utils.GAME_PROGRESSION;
 
 public class App {
 
+    private static final int GAME_GREET = 1;
+    private static final int GAME_EVEN = 2;
+    private static final int GAME_CALC = 3;
+    private static final int GAME_GCD = 4;
+    private static final int GAME_PROGRESSION = 5;
+    private static final int GAME_PRIME = 6;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -33,10 +31,10 @@ public class App {
         int number = Integer.parseInt(scanner.nextLine());
 
 
-        List<Integer> games = List.of(GAME_GREET, GAME_EVEN, GAME_CALC, GAME_GCD, GAME_PROGRESSION, GAME_PRIME);
+
         switch (number) {
             case GAME_GREET:
-                greeting();
+                Cli.sayHello(scanner);
                 break;
             case GAME_EVEN:
                 EvenGame.runGame(scanner);
@@ -60,8 +58,6 @@ public class App {
 
     }
 
-    public static String greeting() {
-        System.out.println("Welcome to the Brain Games!");
-        return Cli.getName();
-    }
+
+
 }
