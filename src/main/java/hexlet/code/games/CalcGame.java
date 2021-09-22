@@ -3,37 +3,34 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
-
 import static hexlet.code.Utils.MAXIMUM_RANDOM_VALUE;
 import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 
 public class CalcGame {
-    private static String gameDescription = "What is the result of the expression?";
+    private static final String GAME_DESCRIPTION = "What is the result of the expression?";
 
-    public static void runGame(Scanner scanner) {
+    private static final  String[] MATHEMATICAL_SIGNS = {"+", "-", "*"};
+
+    public static void runGame() {
 
         String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
         String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
-            arrayOfQuestions[i] = question();
-            arrayOfRightAnswers[i] = rightAnswer(arrayOfQuestions[i]);
+            int a = Utils.getRandomNumber(0, MAXIMUM_RANDOM_VALUE);
+            int b = Utils.getRandomNumber(0, MAXIMUM_RANDOM_VALUE);
+            String operator = getRandomSign();
+            arrayOfQuestions[i] = generateQuestion(a, b, operator);
+            arrayOfRightAnswers[i] = generateAnswer(a, b, operator);
         }
-        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, gameDescription);
+        Engine.runGame(arrayOfQuestions, arrayOfRightAnswers, GAME_DESCRIPTION);
     }
 
-    public static String question() {
-        return Utils.getRandomNumber(0, MAXIMUM_RANDOM_VALUE)
-                + " " + mathematicalSigns() + " "
-                + Utils.getRandomNumber(0, MAXIMUM_RANDOM_VALUE);
+    public static String generateQuestion(int randomNumber1, int randomNumber2, String operator) {
+        return randomNumber1 + " " + operator + " " + randomNumber2;
     }
 
 
-    public static String rightAnswer(String expression) {
-        String[] partsOfExpression = expression.split(" ");
-        int randomNumber1 = Integer.parseInt(partsOfExpression[0]);
-        int randomNumber2 = Integer.parseInt(partsOfExpression[2]);
-        String operator = partsOfExpression[1];
+    public static String generateAnswer(int randomNumber1, int randomNumber2, String operator) {
         switch (operator) {
             case "+":
                 return Integer.toString(randomNumber1 + randomNumber2);
@@ -41,15 +38,12 @@ public class CalcGame {
                 return Integer.toString(randomNumber1 - randomNumber2);
             default:
                 return Integer.toString(randomNumber1 * randomNumber2);
-
-
         }
     }
 
-    private static String mathematicalSigns() {
-        String[] mathematicalSigns = {"+", "-", "*"};
-        int rndIndex = Utils.getRandomNumber(0, mathematicalSigns.length);
-        return mathematicalSigns[rndIndex];
+    private static String getRandomSign() {
+        int rndIndex = Utils.getRandomNumber(0, MATHEMATICAL_SIGNS.length);
+        return MATHEMATICAL_SIGNS[rndIndex];
     }
 
 }

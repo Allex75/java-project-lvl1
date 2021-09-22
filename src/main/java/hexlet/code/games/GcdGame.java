@@ -3,21 +3,31 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
-
 public class GcdGame {
-     private static  String gameDescription = "Find the greatest common divisor of given numbers.";
+     private static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
-    public static String question() {
-        int a = Utils.getRandomNumber(1, Utils.MAXIMUM_RANDOM_VALUE);
-        int b = Utils.getRandomNumber(1, Utils.MAXIMUM_RANDOM_VALUE);
+    public static String generateQuestion(int a, int b) {
         return a + " " + b;
     }
 
-    public static String rightAnswer(String expression) {
-        String[] numbers = expression.split(" ");
-        int a = Integer.parseInt(numbers[0]);
-        int b = Integer.parseInt(numbers[1]);
+    public static String generateAnswer(int a, int b) {
+        return Integer.toString(searchForGcd(a, b));
+    }
+
+    public static void runGame() {
+
+        String[] arrayOfQuestions = new String[Utils.NUMBER_OF_QUESTIONS];
+        String[] arrayOfRightAnswers = new String[Utils.NUMBER_OF_QUESTIONS];
+        for (int i = 0; i < Utils.NUMBER_OF_QUESTIONS; i++) {
+            int a = Utils.getRandomNumber(1, Utils.MAXIMUM_RANDOM_VALUE);
+            int b = Utils.getRandomNumber(1, Utils.MAXIMUM_RANDOM_VALUE);
+            arrayOfQuestions[i] = generateQuestion(a, b);
+            arrayOfRightAnswers[i] = generateAnswer(a, b);
+        }
+        Engine.runGame(arrayOfQuestions, arrayOfRightAnswers, GAME_DESCRIPTION);
+    }
+
+    private static int searchForGcd(int a, int b) {
         while (a != b) {
             if (a > b) {
                 a = a - b;
@@ -25,17 +35,6 @@ public class GcdGame {
                 b = b - a;
             }
         }
-        return Integer.toString(a);
-    }
-
-    public static void runGame(Scanner scanner) {
-
-        String[] arrayOfQuestions = new String[Utils.NUMBER_OF_QUESTIONS];
-        String[] arrayOfRightAnswers = new String[Utils.NUMBER_OF_QUESTIONS];
-        for (int i = 0; i < Utils.NUMBER_OF_QUESTIONS; i++) {
-            arrayOfQuestions[i] = question();
-            arrayOfRightAnswers[i] = rightAnswer(arrayOfQuestions[i]);
-        }
-        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, gameDescription);
+        return a;
     }
 }

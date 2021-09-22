@@ -37,19 +37,19 @@ public class App {
                 Cli.sayHello(scanner);
                 break;
             case GAME_EVEN:
-                EvenGame.runGame(scanner);
+                EvenGame.runGame();
                 break;
             case GAME_CALC:
-                CalcGame.runGame(scanner);
+                CalcGame.runGame();
                 break;
             case GAME_GCD:
-                GcdGame.runGame(scanner);
+                GcdGame.runGame();
                 break;
             case GAME_PROGRESSION:
-                ProgressionGame.runGame(scanner);
+                ProgressionGame.runGame();
                 break;
             case GAME_PRIME:
-                PrimeGame.runGame(scanner);
+                PrimeGame.runGame();
                 break;
             default:
                 System.out.println("Error");

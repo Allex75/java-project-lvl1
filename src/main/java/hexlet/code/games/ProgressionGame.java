@@ -3,14 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
-
 public class ProgressionGame {
     public static final int LENGTH_OF_PROGRESSION = 10;
-    private static  String gameDescription = "What number is missing in the progression?";
+    private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
 
 
-    public static String question(int[] array, int missingPos) {
+    public static String generateQuestion(int[] array, int missingPos) {
         StringBuilder arrayStr = new StringBuilder();
 
         for (int i = 0; i < array.length; i++) {
@@ -36,17 +34,16 @@ public class ProgressionGame {
     }
 
 
-    public static void runGame(Scanner scanner) {
-
+    public static void runGame() {
         String[] arrayOfQuestions = new String[Utils.NUMBER_OF_QUESTIONS];
         String[] arrayOfRightAnswers = new String[Utils.NUMBER_OF_QUESTIONS];
         for (int i = 0; i < Utils.NUMBER_OF_QUESTIONS; i++) {
             int[] array = generateArray();
             int missingPos = Utils.getRandomNumber(0, LENGTH_OF_PROGRESSION - 1);
-            arrayOfQuestions[i] = question(array, missingPos);
+            arrayOfQuestions[i] = generateQuestion(array, missingPos);
             arrayOfRightAnswers[i] = String.valueOf(array[missingPos]);
         }
-        Engine.runGame(scanner, arrayOfQuestions, arrayOfRightAnswers, gameDescription);
+        Engine.runGame(arrayOfQuestions, arrayOfRightAnswers, GAME_DESCRIPTION);
     }
 
 }

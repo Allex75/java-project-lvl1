@@ -8,7 +8,8 @@ import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 public class Engine {
 
 
-    public static void runGame(Scanner scanner, String[] questions, String[] rightAnswers, String gameDescription) {
+    public static void runGame(String[] questions, String[] rightAnswers, String gameDescription) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String name = scanner.nextLine();
