@@ -2,15 +2,15 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
+import static hexlet.code.Engine.NUMBER_OF_QUESTIONS;
 public class PrimeGame {
 
     private static final String GAME_DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void runGame() {
-        String[] arrayOfQuestions = new String[Utils.NUMBER_OF_QUESTIONS];
-        String[] arrayOfRightAnswers = new String[Utils.NUMBER_OF_QUESTIONS];
-        for (int i = 0; i < Utils.NUMBER_OF_QUESTIONS; i++) {
+        String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
+        String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
+        for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int question = generateQuestion();
             arrayOfQuestions[i] = String.valueOf(question);
             arrayOfRightAnswers[i] = generateAnswer(question);

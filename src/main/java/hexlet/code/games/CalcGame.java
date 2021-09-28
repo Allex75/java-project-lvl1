@@ -3,13 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import static hexlet.code.Engine.NUMBER_OF_QUESTIONS;
 import static hexlet.code.Utils.MAXIMUM_RANDOM_VALUE;
-import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
 
 public class CalcGame {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
 
-    private static final  String[] MATHEMATICAL_SIGNS = {"+", "-", "*"};
+    private static final String[] MATHEMATICAL_SIGNS = {"+", "-", "*"};
 
     public static void runGame() {
 
@@ -36,9 +36,12 @@ public class CalcGame {
                 return Integer.toString(randomNumber1 + randomNumber2);
             case "-":
                 return Integer.toString(randomNumber1 - randomNumber2);
-            default:
+            case "*":
                 return Integer.toString(randomNumber1 * randomNumber2);
+            default:
+                break;
         }
+        return operator;
     }
 
     private static String getRandomSign() {

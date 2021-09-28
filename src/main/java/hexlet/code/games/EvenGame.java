@@ -2,8 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
-import static hexlet.code.Utils.NUMBER_OF_QUESTIONS;
+import static hexlet.code.Engine.NUMBER_OF_QUESTIONS;
 
 public class EvenGame {
 
@@ -23,13 +22,13 @@ public class EvenGame {
 
     public static void runGame() {
 
-        String[] arrayOfQuestions = new String[NUMBER_OF_QUESTIONS];
-        String[] arrayOfRightAnswers = new String[NUMBER_OF_QUESTIONS];
+        String[] questions = new String[NUMBER_OF_QUESTIONS];
+        String[] answers = new String[NUMBER_OF_QUESTIONS];
         for (int i = 0; i < NUMBER_OF_QUESTIONS; i++) {
             int question = generateQuestion();
-            arrayOfQuestions[i] = String.valueOf(question);
-            arrayOfRightAnswers[i] = generateAnswer(question);
+            questions[i] = String.valueOf(question);
+            answers[i] = generateAnswer(question);
         }
-        Engine.runGame(arrayOfQuestions, arrayOfRightAnswers, GAME_DESCRIPTION);
+        Engine.runGame(questions, answers, GAME_DESCRIPTION);
     }
 }
